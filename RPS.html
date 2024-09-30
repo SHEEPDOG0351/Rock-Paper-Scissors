@@ -8,23 +8,68 @@
 
 <style>
 
-button {
-    
-}
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-#rock {
+    body {
+        background-color: black;
+        color: white;
+    }
 
-}
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-top: 20px;
+    }
+
+    #button-container {
+        display: flex;
+        justify-content: center;
+        /* border: 1px red solid; */
+        padding-top: 50px;
+    }
+
+    button {
+        background-color: white;
+        color: black;
+        padding: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 5px;
+
+    }
+
+
+    button:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    #points-display {
+        margin-top: 40px;
+        margin-left: 16px;
+        font-size: 30px;
+    }
+
+    #action {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
 
 </style>
 
 <body>
     <h1>Rock Paper Scissors</h1>
+    <div id="button-container">
+        <button id="rock" onclick="rock_paper_scissors('rock')">Rock</button>
+        <button id="paper" onclick="rock_paper_scissors('paper')">Paper</button>
+        <button id="scissors" onclick="rock_paper_scissors('scissors')">Scissors</button>
+    </div>
     
-    <button id="rock" onclick="rock_paper_scissors('rock')">Rock</button>
-    <button id="paper" onclick="rock_paper_scissors('paper')">Paper</button>
-    <button id="scissors" onclick="rock_paper_scissors('scissors')">Scissors</button>
-
+    
     <h2 id="points-display">Current Points: </h2>
 
     <p id="action"></p>
