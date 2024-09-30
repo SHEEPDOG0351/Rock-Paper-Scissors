@@ -1,7 +1,5 @@
-const prompt = require('prompt-sync')()
+// const prompt = require('prompt-sync')()
 let points = 0
-
-let flag = true
 
 function generateComputerDecision() {
     let random_number = Math.floor(Math.random() * 3) + 1;
@@ -20,48 +18,53 @@ function generateComputerDecision() {
     return computer_decision
 }
 
-function rock_paper_scissors() {
-    while (flag) {
-        let user = prompt('Select either rock, paper, or scissors: ')
+function rock_paper_scissors(user) {
         let computer_decision = generateComputerDecision()
         if (user.toLowerCase() == 'rock') {
             if (computer_decision == 'paper') {
                 points--
-                console.log(`You lost this round as the computer chose ${computer_decision} and lose a point. You currently have ${points} points.`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you lost a point.`;
+
             } 
             else if (computer_decision == 'rock') {
-                console.log(`You both selected rock! This round is a tie. You currently have ${points} points.`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so this round's a tie!`;
             } else if (computer_decision == 'scissors') {
                 points++
-                console.log(`You won this round as you have selected ${user} and the computer seclected ${computer_decision}, thus you gain a point! You currently have ${points} points!`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you won this round!`;
+
             }
         }
         else if (user.toLowerCase() == 'paper') {
             let computer_decision = generateComputerDecision()
             if (computer_decision == 'rock') {
                 points++
-                console.log(`You won this round as you have selected ${user} and the computer seclected ${computer_decision}, thus you gain a point! You currently have ${points} points!`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you won this round!`;
             } else if (computer_decision == 'paper') {
-                console.log(`You both selected paper! This round is a tie. You currently have ${points} points.`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so this round's a tie!`;
             } else if (computer_decision == 'scissors') {
                 points--
-                console.log(`You lost this round as the computer chose ${computer_decision} and lose a point. You currently have ${points} points.`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you lost a point.`;
+
             }
         } else if (user.toLowerCase() == 'scissors') {
             let computer_decision = generateComputerDecision()
             if (computer_decision == 'rock') {
                 points--
-                console.log(`You lost this round as the computer chose ${computer_decision} and lose a point. You currently have ${points} points.`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you lost a point.`;
             } else if (computer_decision == 'paper') {
                 points++
-                console.log(`You won this round as you have selected ${user} and the computer seclected ${computer_decision}, thus you gain a point! You currently have ${points} points!`)
+                current_points_text = document.getElementById("points-display").innerText = `Current Points: ${points}`;
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so you won this round!`;
+            } else if (computer_decision == 'scissors') {
+                action = document.getElementById("action").innerText = `The computer selected ${computer_decision}, and you selected ${user}, so this round's a tie!`;
+
             }
         }
-        else if (user.toLowerCase() == 'quit') {
-            console.log(`You had ${points} points total!`)
-            flag = false
-        }
-    }
 }
-
-console.log(rock_paper_scissors())
